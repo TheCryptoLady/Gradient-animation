@@ -1,0 +1,76 @@
+* 
+{
+    margin: 0;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+body 
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    height: 3000px;
+    background: #222;
+}
+
+.box {
+    width: 500px;
+    height: 500px;
+    border-radius: 250px;
+    position: relative;
+}
+
+.box::before
+{
+    content: '';
+    position: absolute;
+    background: repeating-conic-gradient(from var(--a), white, rgb(0, 191, 255), rgb(255, 255, 0));
+    inset: 0;
+    border-radius: 10px;
+    animation: GradientRotate 20s linear infinite;
+}
+
+.box::after
+{
+    content: '';
+    position: absolute;
+    background: repeating-conic-gradient(from var(--a), rgb(225, 1, 255), rgb(0, 191, 255), rgb(255, 255, 0),red);
+    inset: 0;
+    border-radius: 10px;
+    animation: GradientRotate 20s linear infinite;
+    filter: blur(50px);
+    opacity: 0.7;
+}
+
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+@keyframes GradientRotate 
+{
+    from 
+    {
+        --a: 0deg;
+    }
+    to 
+    {
+        --a: 360deg;
+    }
+}
+
+
+.box span 
+{
+    position: absolute;
+    inset: -2px;
+    background: #222;
+    border-radius: 8px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
