@@ -73,5 +73,6 @@ body
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 50px;
+    font-size: 150px;
+    font-family: Arial;
 }
